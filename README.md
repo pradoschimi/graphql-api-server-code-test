@@ -1,6 +1,6 @@
 # GraphQL API Server
 
-[English](./README.md) | [繁體中文（香港）](./README.zh-HK.md)
+[English](./README.md) | [繁體中文](./README.zh-HK.md)
 
 A read-only GraphQL API built with Node.js and Apollo Server. It exposes the supplied JSON files through the required schema, resolves references between records, and protects every HTTP operation with a Bearer token.
 

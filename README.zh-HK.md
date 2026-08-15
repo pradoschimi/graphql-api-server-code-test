@@ -38,6 +38,17 @@ node --env-file=.env src/server.js
 
 每個 HTTP 請求都必須包含 `Authorization: Bearer <token>`。缺少憑證、格式錯誤或 Token 不正確時，伺服器會返回 HTTP `401`，GraphQL 錯誤代碼為 `UNAUTHENTICATED`。
 
+### Apollo Sandbox
+
+Apollo Sandbox 會通過內省請求載入 API Schema，而本項目的內省請求同樣需要身份驗證。使用 Explorer 前：
+
+1. 使用上方的示範 Token 啟動伺服器，然後開啟 `http://localhost:4000/`。
+2. 點擊端點旁的設定圖示，將 `Authorization: Bearer demo-token` 加入共用連線 Header。
+3. 重新連接端點或刷新 Schema。Schema 面板的 `Query` 下應顯示 `node(nodeId: ID): NodeObject`。
+4. 如果查詢操作沒有繼承共用 Header，請在該操作的 **Headers** 分頁加入相同內容。
+
+如果 Schema 面板顯示另一個 Query，而 `ID` 或 `node` 被標示為無效，表示 Sandbox 尚未載入已通過身份驗證的 Schema。請重新檢查共用 Header 並連接端點。從 Markdown 程式碼區塊複製範例時，只複製查詢內容，不要把語言標記 `graphql` 一併貼入 Explorer。
+
 以下請求會獲取一個 Node，並解析其 Trigger、Responses、Parents 和 Actions：
 
 ```bash

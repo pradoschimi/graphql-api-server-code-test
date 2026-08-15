@@ -38,6 +38,17 @@ Never commit a real `.env` file or production token.
 
 Every HTTP request must include `Authorization: Bearer <token>`. Missing, malformed, or incorrect credentials return HTTP `401` with GraphQL error code `UNAUTHENTICATED`.
 
+### Apollo Sandbox
+
+Apollo Sandbox loads the API schema through an introspection request, which also requires authentication in this project. Before using the Explorer:
+
+1. Start the server with the demonstration token shown above and open `http://localhost:4000/`.
+2. Select the settings icon beside the endpoint and add `Authorization: Bearer demo-token` as a shared connection header.
+3. Reconnect to the endpoint or refresh the schema. The Schema panel should show `node(nodeId: ID): NodeObject` under `Query`.
+4. If the operation does not inherit the shared header, add the same value in the operation's **Headers** tab.
+
+If `ID` or `node` is marked as invalid while the Schema panel shows a different Query, Sandbox has not loaded the authenticated schema yet. Recheck the shared header and reconnect. When copying a fenced example, copy the query itself but not the Markdown language label `graphql`.
+
 The following request fetches one Node and resolves its Trigger, Responses, Parents, and Actions:
 
 ```bash

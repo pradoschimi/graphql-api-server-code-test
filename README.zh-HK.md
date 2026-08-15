@@ -49,6 +49,8 @@ Apollo Sandbox 會通過內省請求載入 API Schema，而本項目的內省請
 
 如果 Schema 面板顯示另一個 Query，而 `ID` 或 `node` 被標示為無效，表示 Sandbox 尚未載入已通過身份驗證的 Schema。請重新檢查共用 Header 並連接端點。從 Markdown 程式碼區塊複製範例時，只複製查詢內容，不要把語言標記 `graphql` 一併貼入 Explorer。
 
+### Terminal
+
 以下請求會獲取一個 Node，並解析其 Trigger、Responses、Parents 和 Actions：
 
 ```bash

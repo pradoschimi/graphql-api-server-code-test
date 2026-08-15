@@ -49,6 +49,8 @@ Apollo Sandbox loads the API schema through an introspection request, which also
 
 If `ID` or `node` is marked as invalid while the Schema panel shows a different Query, Sandbox has not loaded the authenticated schema yet. Recheck the shared header and reconnect. When copying a fenced example, copy the query itself but not the Markdown language label `graphql`.
 
+### Terminal
+
 The following request fetches one Node and resolves its Trigger, Responses, Parents, and Actions:
 
 ```bash
